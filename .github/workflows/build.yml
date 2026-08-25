@@ -17,7 +17,7 @@ jobs:
         run: flutter create --platforms=android .
 
       - name: Set minSdkVersion to 21
-        run: sed -i 's/minSdkVersion 19/minSdkVersion 21/g' android/app/build.gradle
+        run: sed -i -E 's/minSdkVersion[[:space:]]+[0-9]+/minSdkVersion 21/' android/app/build.gradle
 
       - name: Get dependencies
         run: flutter pub get
