@@ -9,6 +9,7 @@ jobs:
         with:
           flutter-version: '3.16.0'
           channel: 'stable'
+      - run: flutter create --platforms=android .   # 自动生成 android/ 目录
       - run: flutter pub get
       - run: flutter build apk --release
       - uses: actions/upload-artifact@v3
