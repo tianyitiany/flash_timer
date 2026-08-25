@@ -17,7 +17,7 @@ jobs:
         run: flutter create --platforms=android .
 
       - name: Fix minSdkVersion
-        run: python -c "import re; p='android/app/build.gradle'; s=open(p).read(); s=re.sub(r'minSdkVersion\s+\d+', 'minSdkVersion 21', s); open(p,'w').write(s)"
+        run: python -c "import re; p='android/app/build.gradle'; s=open(p).read(); s=re.sub(r'minSdkVersion\s+\S+', 'minSdkVersion 21', s); open(p,'w').write(s)"
 
       - name: Verify minSdkVersion
         run: grep -n "minSdkVersion" android/app/build.gradle
